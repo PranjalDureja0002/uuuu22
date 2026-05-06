@@ -1,0 +1,14 @@
+Backend changes
+File	Change
+backend/app/schemas.py	Added created_by_username to EngagementSummary, uploaded_by_username to AssetSummary. Added EngagementUpdate and AssetUpdate schemas (all fields optional — partial-update semantics).
+backend/app/auth.py	New helpers can_edit_engagement(user, eng) and can_edit_asset(user, asset)
+backend/app/search.py	_engagement_summary and _asset_summary now include the username fields
+backend/app/routers/upload.py	Four new endpoints: PATCH /engagements/{id}, DELETE /engagements/{id}, PATCH /assets/{id}, DELETE /assets/{id}. Engagement delete cascades through SQLAlchemy (assets → chunks/tags, lessons), explicitly wipes the junction tables (platforms, tech stack, cloud, llms, contributors), and best-effort cleans up local files + ChromaDB vectors. Asset delete cleans up its file + vectors. All endpoints log to audit_log.
+Frontend changes
+File	Change
+frontend/src/types/index.ts	Added the new username fields
+frontend/src/lib/api.ts	Added api.patch() to the API client
+frontend/src/components/brand/engagement-actions.tsx	New client component — small toolbar with Edit (links to edit page) and Delete (inline confirm with asset-count warning). Self-fetches /api/auth/me and renders nothing if the user lacks permission.
+frontend/src/components/brand/asset-row-actions.tsx	New client component — kebab menu per asset row → opens Edit (modal with title/description/asset-type/sensitivity inputs) or Delete (inline confirm). Permission-gated like the engagement actions.
+frontend/src/app/engagements/id/page.tsx	Mounts <EngagementActions /> below the business outcomes block, and <AssetRowActions /> next to each asset's Download button
+frontend/src/app/upload/engagements/id/edit/page.tsx	New page — mirror of the New Engagement form, pre-fills from getEngagement(id), PATCHes on submit. Same Single/Multi taxonomy pickers, same "Other / type your own" support. Refuses access for users who don't have permission.
