@@ -1,0 +1,43 @@
+Nice — yes, with **Code Interpreter** capability turned on (the toggle in Agent Builder under "Capabilities"), the agent can actually generate the .pptx file directly. That changes the game.
+
+Here are demo prompts designed to make each agent sing in front of an audience. I've picked ones that force cross-cell reasoning so the output feels intelligent, not lookup-y.
+
+## Agent 6 — Market Research Analyst
+
+Upload `6_Market_Research_Survey.xlsx`, then try:
+
+1. **"Analyze the survey data and build me an 8-slide market opportunity deck. Identify our top 2 target segments based on willingness to switch, satisfaction with current solution, and budget. Include a competitor positioning slide. Generate the PowerPoint."**
+
+2. **"Build a board deck recommending where we should focus our 2026 GTM investment. Use the survey data to defend the recommendation with specific numbers. Generate the PowerPoint."**
+
+3. **"Compare Healthcare and Finance segments side-by-side — satisfaction, top features wanted, willingness to switch, and average budget. Build a 5-slide deck arguing which segment we should prioritize. Generate the PowerPoint."**
+
+*Why these land:* All three force the agent to combine multiple columns and hit the engineered insight (Finance has 2.88 satisfaction and 100% are at least open to switching — that's the obvious answer, but the agent has to *find* it).
+
+## Agent 7 — Quarterly Performance Analyst
+
+Upload `7_Quarterly_Revenue_Data.xlsx`, then try:
+
+1. **"Build me an 8-slide investor-ready deck on our FY 2025 performance. Include our Rule of 40 score vs each peer, call out our breakout segment and our laggard, and end with a forward-look slide. Generate the PowerPoint."**
+
+2. **"Create a board pack with one slide for the BLUF, one for top-line, one for segment performance, two for peer benchmarking, and one for the operational health story (NRR, churn, NPS). Quantify everywhere. Generate the PowerPoint."**
+
+3. **"Build a 'highlights and lowlights' deck for our quarterly review — 3 wins with numbers, 3 watch-outs with numbers, and 2 actions for Q1 2026. Generate the PowerPoint."**
+
+*Why these land:* The agent has to discover that AI Studio grew from $4.5M → $28M (the breakout), Storage is declining (the laggard), and our Rule of 40 lags CloudOne despite faster growth. Those three findings together are a real analyst's insight, not a lookup.
+
+## Agent 8 — Contract Extraction Agent
+
+Upload `9_Sample_Contract_MSA.docx`, then try:
+
+1. **"Extract all key terms from this contract into a structured table. Flag any clauses that deviate from market standard or favor the counterparty. Generate a PowerPoint summary with one slide each for: parties & dates, commercial terms, risk flags, and recommended actions before signing."**
+
+2. **"What deadlines am I in danger of missing if I don't track this contract carefully? Give me a calendar of every notice window, payment cycle, and renewal trigger. Generate a PowerPoint with the dates as a timeline visual."**
+
+3. **"Pretend I'm the General Counsel reviewing this in 5 minutes. Build me a 4-slide executive briefing: what is this, what are the top 3 risks, what's non-standard, and what's my recommendation. Generate the PowerPoint."**
+
+*Why these land:* Question 2 is the killer — it surfaces the **60-day renewal notice window** (easy to miss), the **Net 60 payment cycle**, and the **180-day vendor termination notice** as a date-based risk profile. Most legal reviewers wouldn't catch all three on a fast read.
+
+---
+
+**One workshop tip:** for each agent, ask the same question *twice in a row* with a small variation ("now do it for 6 slides instead of 8" or "now focus only on EMEA"). The audience seeing the agent re-run with a tweaked angle is the moment where it stops feeling like a one-trick demo and starts feeling like a real virtual analyst.
