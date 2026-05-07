@@ -1,0 +1,3 @@
+"I've uploaded data for three companies. Identify which one is the standout performer on Rule of 40 and which is most at risk. Build me an 8-slide investor deck for the standout company including the peer comparison. Generate the PowerPoint."
+"Build me a peer benchmark deck for NorthwindCloud. Show how we compare on revenue growth, operating margin, NRR, and customer churn. Quantify every gap vs the peer median. Generate the PowerPoint."
+"Compare segment strategies across all three companies — who's winning in AI, who's losing in storage, who's diversified vs concentrated. Build a 6-slide strategic positioning deck. Generate the PowerPoint."
